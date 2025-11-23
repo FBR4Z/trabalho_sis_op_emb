@@ -111,6 +111,7 @@ int main() {
 gcc 01_fork_example.c -o fork_example
 ./fork_example
 ```
+![alt text](image.png)
 
 **Saída Esperada:**
 ```
@@ -161,6 +162,8 @@ int main() {
 gcc 02_pipe_example.c -o pipe_example
 ./pipe_example
 ```
+
+![alt text](image-1.png)
 
 **Observações Importantes:**
 - Pipes são buffers de tamanho limitado (geralmente 65536 bytes no Linux)
@@ -219,6 +222,8 @@ gcc 03_semaphore_example.c -o semaphore_example -lpthread
 ./semaphore_example
 ```
 
+![alt text](image-2.png)
+
 **Saída Esperada:**
 ```
 Thread A executando
@@ -270,6 +275,8 @@ int main() {
 gcc 04_signal_example.c -o signal_example
 ./04_signal_example
 ```
+
+![alt text](image-3.png)
 
 **Comportamento:**
 - Programa entra em loop infinito
@@ -341,6 +348,8 @@ int main() {
 gcc 05_preempt_timeslice.c -o preempt_timeslice -lpthread
 ./preempt_timeslice
 ```
+
+![alt text](image-4.png)
 
 **Saída Observada:**
 ```
@@ -418,6 +427,8 @@ int main(void) {
 gcc 06_rt_starvation.c -o rt_starvation
 sudo taskset -c 0 ./rt_starvation  # Força execução no mesmo core
 ```
+
+![alt text](image-5.png)
 
 **Observação Importante:** Requer privilégios de superusuário (sudo) para elevar processo a SCHED_FIFO.
 
@@ -519,6 +530,10 @@ int main() {
 gcc 07_supervisor.c -o supervisor
 ./supervisor
 ```
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
 
 **Teste em Outro Terminal:**
 ```bash
@@ -625,6 +640,11 @@ gcc 08_process_states.c -o process_states
 ./process_states
 ```
 
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+
 **Análise com ps:**
 ```bash
 ps -o pid,stat,comm -p 36661,36662,36663,36674
@@ -701,6 +721,8 @@ int main(int argc, char *argv[], char *envp[])
 gcc 09_fork_execve.c -o fork_execve
 ./fork_execve
 ```
+
+![alt text](image-10.png)
 
 **Saída Esperada:**
 ```
@@ -794,6 +816,8 @@ gcc 10_ex_threads.c -o ex_threads -lpthread
 ./ex_threads
 ```
 
+![alt text](image-11.png)
+
 **Saída Esperada:**
 ```
 0: Hello World!
@@ -864,6 +888,8 @@ Sou o processo FILHO! PID: 38990
 
 [PAI] Programa continuou apos a funcao system()
 ```
+
+![alt text](image-12.png)
 
 **Análise:**
 - `system()` internamente usa `fork()` + `execve()` + `wait()`
@@ -949,6 +975,8 @@ trabalho_sis_op_emb_fabiobraz/
         └── Makefile
 ```
 
+![alt text](image-13.png)
+
 **Observações:**
 - TaskA tem prioridade 2 (mais alta)
 - TaskB e TaskC têm prioridade 1
@@ -1020,6 +1048,8 @@ int main(void)
     for (;;);
 }
 ```
+
+![alt text](image-14.png)
 
 **Comportamento:**
 - Produtora sinaliza semáforo a cada 1 segundo
@@ -1098,6 +1128,8 @@ int main(void)
 }
 ```
 
+![alt text](image-15.png)
+
 **Características:**
 - Fila armazena até 5 inteiros
 - Comunicação bidirecional possível
@@ -1148,6 +1180,8 @@ int main(void)
     for (;;);
 }
 ```
+
+![alt text](image-16.png)
 
 **Diferença entre Mutex e Semáforo Binário:**
 - **Mutex:** Só quem pegou pode liberar (ownership)
@@ -1223,6 +1257,8 @@ int main(void)
 }
 ```
 
+![alt text](image-17.png)
+
 **Comportamento:**
 - Timer periódico executa a cada 1 segundo indefinidamente
 - Timer one-shot executa apenas uma vez após 5 segundos
@@ -1296,6 +1332,8 @@ int main(void) {
 gcc mypipe.c -o mypipe
 ./mypipe
 ```
+
+![alt text](image-18.png)
 
 **Saída:**
 ```
@@ -1417,6 +1455,8 @@ gcc mq-send.c -o mq-send -lrt
 # Terminal 2
 ./mq-send
 ```
+
+![alt text](image-19.png)
 
 **Vantagens sobre Pipes:**
 - Processos não precisam ter relação de parentesco
@@ -1545,6 +1585,8 @@ gcc shmem_read.c -o shmem_read -lrt
 ./shmem_read
 ```
 
+![alt text](image-20.png)
+
 **Problema Encontrado e Solução:**
 
 No código original (`shmem.c`), as seções de escrita estavam comentadas, resultando em leitura constante de zero:
@@ -1655,6 +1697,9 @@ int main() {
 gcc posix_sem.c -o posix_sem -lpthread
 gcc mutex_demo.c -o mutex_demo -lpthread
 ```
+![alt text](image-21.png)
+
+![alt text](image-22.png)
 
 **Diferenças:**
 
