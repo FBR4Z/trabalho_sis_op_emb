@@ -5,6 +5,7 @@
 **Data:** Novembro de 2025  
 **Ambiente:** Ubuntu WSL2 no Windows, Visual Studio Code
 **Repositório** //github.com/FBR4Z/trabalho_sis_op_emb.git
+**Prof.** Fábio de Sousa Cardoso
 
 ---
 
